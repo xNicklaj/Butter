@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Nicklaj.SimpleSOAP
 {
     [CreateAssetMenu(fileName = "Bool Variable", menuName = "Simple SOAP/Variables/Boolean")]
-    public class BoolVariable : ScriptableVariable<bool>, ISaveScriptableData
+    public class BoolVariable : ScriptableVariable<bool>, IPersistentData
     {
         public string PersistencyId { get; set; }
 

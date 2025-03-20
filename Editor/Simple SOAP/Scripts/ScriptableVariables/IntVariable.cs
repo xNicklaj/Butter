@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Nicklaj.SimpleSOAP 
 {
     [CreateAssetMenu(fileName = "Int Variable", menuName = "Simple SOAP/Variables/Integer")]
-    public class IntVariable : ScriptableVariable<int>, ISaveScriptableData
+    public class IntVariable : ScriptableVariable<int>, IPersistentData
     {
         public string PersistencyId { get; set; }
 

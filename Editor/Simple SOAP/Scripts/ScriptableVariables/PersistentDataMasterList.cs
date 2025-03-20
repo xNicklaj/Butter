@@ -37,13 +37,13 @@ namespace Nicklaj.SimpleSOAP
             Dictionary<string, string> JsonEncoded = new();
             foreach (var variable in List)
             {
-                if (variable is not ISaveScriptableData scriptableObject)
+                if (variable is not IPersistentData scriptableObject)
                 {
                     Debug.LogWarning("Variable " + variable.name + " is not ISaveScriptableData. Skipping variable.");
                     continue;
                 }
-                string data = (variable as ISaveScriptableData).Serialize();
-                JsonEncoded.Add((variable as ISaveScriptableData).PersistencyId, data);
+                string data = (variable as IPersistentData).Serialize();
+                JsonEncoded.Add((variable as IPersistentData).PersistencyId, data);
             }
             return JsonConvert.SerializeObject(JsonEncoded);
         }
@@ -55,12 +55,12 @@ namespace Nicklaj.SimpleSOAP
 
             foreach (var variable in List)
             {
-                if (variable is not ISaveScriptableData scriptableObject)
+                if (variable is not IPersistentData scriptableObject)
                 {
                     Debug.LogWarning("Variable " + variable.name + " is not ISaveScriptableData. Skipping variable.");
                     continue;
                 }
-                (variable as ISaveScriptableData).Deserialize(JsonEncoded[(variable as ISaveScriptableData).PersistencyId]);
+                (variable as IPersistentData).Deserialize(JsonEncoded[(variable as IPersistentData).PersistencyId]);
             }
         }
 

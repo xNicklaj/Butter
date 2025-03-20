@@ -2,7 +2,7 @@
 
 namespace Nicklaj.SimpleSOAP
 {
-    public interface ISaveScriptableData
+    public interface IPersistentData
     {
         public string PersistencyId { get; set; }
         public string Serialize();

@@ -7,7 +7,7 @@ using UnityEngine.Events;
 
 namespace Nicklaj.SimpleSOAP
 {
-    public class ListVariable<T> : ScriptableVariable<List<T>>, ISaveScriptableData
+    public class ListVariable<T> : ScriptableVariable<List<T>>, IPersistentData
     {
         public string PersistencyId { get; set; }
         public UnityAction OnItemAdded = delegate { };
