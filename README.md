@@ -14,7 +14,7 @@ A Scriptable Variable is a runtime variable that can represent a piece of data t
 
 ScriptableVariables also offer a `OnValueChanged` Unity Action that you can use to listen for changes.
 
-By default the framework includes variables of type Int, Float and Bool, but you can extend `ScriptableVariable<T>` to implement your own custom data that is automatically integrated with the framework, just remember to use the `CreateAssetMenu` decorator.
+By default the framework includes variables of common types like Int, Float, String and Bool, but you can extend `ScriptableVariable<T>` to implement your own custom data that is automatically integrated with the framework, just remember to use the `CreateAssetMenu` decorator.
 
 Scriptable Variables can also implement a `IPersistentData` interface to define the serialization / deserialization behaviour as persistent data. Persistent variables must be inserted in a `Persistent Data Master List` and the scene must have a GameObject with a `PersistentDataManager` component.
 

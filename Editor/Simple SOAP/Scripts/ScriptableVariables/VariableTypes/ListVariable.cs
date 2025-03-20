@@ -63,6 +63,9 @@ namespace Nicklaj.SimpleSOAP
 
     [CreateAssetMenu(fileName = "Bool List Variable", menuName = "Simple SOAP/Variables/Lists/Boolean List")]
     public class BoolListVariable : ListVariable<bool> { }
+    
+    [CreateAssetMenu(fileName = "String List Variable", menuName = "Simple SOAP/Variables/Lists/String List")]
+    public class StringListVariable : ListVariable<string> { }
 
     #endregion
 }
