@@ -16,6 +16,10 @@ ScriptableVariables also offer a `OnValueChanged` Unity Action that you can use 
 
 By default the framework includes variables of type Int, Float and Bool, but you can extend `ScriptableVariable<T>` to implement your own custom data that is automatically integrated with the framework, just remember to use the `CreateAssetMenu` decorator.
 
+Scriptable Variables can also implement a `IPersistentData` interface to define the serialization / deserialization behaviour as persistent data. Persistent variables must be inserted in a `Persistent Data Master List` and the scene must have a GameObject with a `PersistentDataManager` component.
+
+This component will take as a field a `Persistent Data Master List` and expose the `SaveData` and `LoadData` methods that allow you to save and restore the persistent data to a save file under `Application.persistentDataPath`.
+
 ### Scriptable Events
 Scriptable Events are built upon two components:
 - An `Event` component that is used as a communication channel.
