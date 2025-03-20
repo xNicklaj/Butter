@@ -35,3 +35,6 @@ In his talk at Unity, Ryan Hipple explains how at Schell Games they used this te
 Since runtime sets are generally used with either Script Instances or GameObjects, by default the framework includes GameObjects list. As usual, you can extend `RuntimeSetBase<T>` to create your custom sets.
 
 I'm also including a `RuntimeSetSubscriber` MonoBehaviour class that adds the GameObject on a specified set when it gets enabled.
+
+>[!warning]
+>Runtime sets are pretty much stretching the limits of what a Scriptable Object can do, while they do work in runtime, *technically* you can't serialize references of runtime data inside a Scriptable, so ~~if you go to the inspector it will give you a "Mismatched Type" sign~~ to fix this I'm rendering a list with all the item names, for visualization purposes only.
