@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Nicklaj.SimpleSOAP
@@ -53,4 +54,9 @@ namespace Nicklaj.SimpleSOAP
     {
 
     }
+
+    #region Custom Editor
+    [CustomEditor(typeof(RuntimeSetBase<GameObject>), true)]
+    public class GameObjectRuntimeSetDrawer : RuntimeSetDrawer { }
+    #endregion
 }

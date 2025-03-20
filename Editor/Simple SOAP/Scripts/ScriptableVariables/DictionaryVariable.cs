@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine.Events;
 
 namespace Nicklaj.SimpleSOAP
@@ -8,8 +10,9 @@ namespace Nicklaj.SimpleSOAP
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="TValue"></typeparam>
-    public class DictionaryVariable<TKey, TValue> : ScriptableVariable<Dictionary<TKey, TValue>>
+    public class DictionaryVariable<TKey, TValue> : ScriptableVariable<Dictionary<TKey, TValue>>, ISaveScriptableData
     {
+        public string PersistencyId { get; set; }
         public UnityAction OnItemAdded = delegate { };
         public UnityAction OnItemRemoved = delegate { };
 
@@ -32,6 +35,22 @@ namespace Nicklaj.SimpleSOAP
         {
             Value.Remove(key);
             OnItemRemoved.Invoke();
+        }
+
+        public string Serialize()
+        {
+            return JsonConvert.SerializeObject(Value);
+        }
+
+        public void Deserialize(string data)
+        {
+            Value = JsonConvert.DeserializeObject<Dictionary<TKey, TValue>>(data);
+        }
+        
+        private void Awake()
+        {
+            if(string.IsNullOrEmpty(PersistencyId))
+                PersistencyId = Guid.NewGuid().ToString();
         }
     }
 }

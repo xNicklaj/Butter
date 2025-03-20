@@ -3,8 +3,7 @@ using UnityEditor;
 
 namespace Nicklaj.SimpleSOAP
 {
-    [CustomEditor(typeof(ScriptableObject), true)]
-    public class RuntimeSetsDrawer : Editor
+    public class RuntimeSetDrawer : Editor
     {
         private IRuntimeSet raiseTarget;
         private bool isRaiseTarget = false;

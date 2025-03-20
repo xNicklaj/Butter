@@ -7,7 +7,6 @@ namespace Nicklaj.SimpleSOAP
     /// <summary>
     /// Custom editor for any ScriptableObject that implements ISerializedRaise interface
     /// </summary>
-    [CustomEditor(typeof(ScriptableObject), true)]
     public class SerializedRaiseEditor : Editor
     {
         private string inputArgument = "";
@@ -54,19 +53,27 @@ namespace Nicklaj.SimpleSOAP
                 // Draw argument field
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.PrefixLabel("Debug Value");
-                inputArgument = EditorGUILayout.TextField(inputArgument, GUILayout.ExpandWidth(true));
+                inputArgument = EditorGUILayout.TextField(inputArgument);
+                // Create a button to raise the event
+                if (GUILayout.Button("Raise Event"))
+                {
+                    // Call the implementation's OnRaiseButtonSubmit method
+                    raiseTarget.OnRaiseButtonSubmit(inputArgument);
+                    if (useDebugLogs) Debug.Log($"Event raised with argument: {(string.IsNullOrEmpty(inputArgument) ? "[none]" : inputArgument)}");
+                }
                 EditorGUILayout.EndHorizontal();
 
                 // Optional: Add hint about expected input type
                 EditorGUILayout.HelpBox($"Expected format: {placeholder}", MessageType.Info);
-            }
-
-            // Create a button to raise the event
-            if (GUILayout.Button("Raise Event"))
+            }else
             {
-                // Call the implementation's OnRaiseButtonSubmit method
-                raiseTarget.OnRaiseButtonSubmit(inputArgument);
-                if(useDebugLogs) Debug.Log($"Event raised with argument: {(string.IsNullOrEmpty(inputArgument) ? "[none]" : inputArgument)}");
+                // Create a button to raise the event
+                if (GUILayout.Button("Raise Event"))
+                {
+                    // Call the implementation's OnRaiseButtonSubmit method
+                    raiseTarget.OnRaiseButtonSubmit(inputArgument);
+                    if (useDebugLogs) Debug.Log($"Event raised with argument: {(string.IsNullOrEmpty(inputArgument) ? "[none]" : inputArgument)}");
+                }
             }
         }
 

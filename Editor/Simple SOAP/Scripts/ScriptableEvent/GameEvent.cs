@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using UnityEditor;
 
 namespace Nicklaj.SimpleSOAP
 {
@@ -39,6 +40,11 @@ namespace Nicklaj.SimpleSOAP
 
         public void Raise() => Raise(Unit.Default);
     }
+
+    #region Drawer
+    [CustomEditor(typeof(GameEvent), true)]
+    public class GameEventDrawer : SerializedRaiseEditor { }
+    #endregion Drawer
 
     public struct Unit
     {

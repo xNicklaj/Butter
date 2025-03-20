@@ -1,3 +1,4 @@
+using UnityEditor;
 using UnityEngine;
 
 namespace Nicklaj.SimpleSOAP
@@ -13,4 +14,9 @@ namespace Nicklaj.SimpleSOAP
             this.Raise(result);
         }
     }
+
+    #region Drawer
+    [CustomEditor(typeof(IntEvent), true)]
+    public class IntEventDrawer : SerializedRaiseEditor { }
+    #endregion Drawer
 }
