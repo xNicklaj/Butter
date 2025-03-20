@@ -8,16 +8,16 @@ namespace Nicklaj.SimpleSOAP
 
     #region Specific Implementations
 
-    [CreateAssetMenu(fileName = "Game Objects List Variable", menuName = "SOAP/Variables/Game Objects List")]
+    [CreateAssetMenu(fileName = "Game Objects List Variable", menuName = "Simple SOAP/Variables/Lists/Game Objects List")]
     public class GameObjectListVariable : ListVariable<GameObject> { }
 
-    [CreateAssetMenu(fileName = "Integer List Variable", menuName = "SOAP/Variables/Integer List")]
+    [CreateAssetMenu(fileName = "Integer List Variable", menuName = "Simple SOAP/Variables/Lists/Integer List")]
     public class IntegerListVariable : ListVariable<int> { }
 
-    [CreateAssetMenu(fileName = "Float List Variable", menuName = "SOAP/Variables/Float List")]
+    [CreateAssetMenu(fileName = "Float List Variable", menuName = "Simple SOAP/Variables/Lists/Float List")]
     public class FloatListVariable : ListVariable<float> { }
 
-    [CreateAssetMenu(fileName = "Bool List Variable", menuName = "SOAP/Variables/Integer List")]
+    [CreateAssetMenu(fileName = "Bool List Variable", menuName = "Simple SOAP/Variables/Lists/Boolean List")]
     public class BoolListVariable : ListVariable<bool> { }
 
     #endregion

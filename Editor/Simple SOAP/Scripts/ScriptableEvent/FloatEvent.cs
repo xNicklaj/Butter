@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Nicklaj.SimpleSOAP
 {
-    [CreateAssetMenu(menuName = "SOAP/Events/Float Event")]
+    [CreateAssetMenu(menuName = "Simple SOAP/Events/Float Event")]
     public class FloatEvent : GameEvent<float>, ISerializedRaise
     {
         public bool HasArgument => true;

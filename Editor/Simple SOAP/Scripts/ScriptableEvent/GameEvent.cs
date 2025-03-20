@@ -27,7 +27,7 @@ namespace Nicklaj.SimpleSOAP
     /// <summary>
     /// Non-generic version of GameEvent. You can use this version when the event you want to raise doesn't need to have any data associated with it.
     /// </summary>
-    [CreateAssetMenu(menuName = "SOAP/Events/Game Event")]
+    [CreateAssetMenu(menuName = "Simple SOAP/Events/Game Event")]
     public class GameEvent : GameEvent<Unit>, ISerializedRaise
     {
         public bool HasArgument => false;

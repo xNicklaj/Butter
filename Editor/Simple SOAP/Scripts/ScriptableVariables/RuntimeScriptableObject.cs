@@ -7,7 +7,7 @@ namespace Nicklaj.SimpleSOAP
     public abstract class RuntimeScriptableObject : ScriptableObject
     {
         static readonly List<RuntimeScriptableObject> Instances = new();
-        public ResetOn ResetOn = ResetOn.ApplicationStart;
+        public ResetOn ResetOn = ResetOn.SceneLoaded;
 
         void OnEnable() => Instances.Add(this);
         void OnDisable() => Instances.Remove(this);

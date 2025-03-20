@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Nicklaj.SimpleSOAP 
 {
-    [CreateAssetMenu(fileName = "Int Variable", menuName = "SOAP/Variables/Integer")]
+    [CreateAssetMenu(fileName = "Int Variable", menuName = "Simple SOAP/Variables/Integer")]
     public class IntVariable : ScriptableVariable<int> { }
 
     #region Custom Drawer

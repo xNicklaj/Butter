@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Nicklaj.SimpleSOAP
 {
-    [CreateAssetMenu(fileName = "Float Variable", menuName = "SOAP/Variables/Float")]
+    [CreateAssetMenu(fileName = "Float Variable", menuName = "Simple SOAP/Variables/Float")]
     public class FloatVariable : ScriptableVariable<float>
     {
 

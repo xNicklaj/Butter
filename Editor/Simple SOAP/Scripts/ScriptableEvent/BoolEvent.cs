@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Nicklaj.SimpleSOAP
 {
-    [CreateAssetMenu(menuName = "SOAP/Events/Boolean Event")]
+    [CreateAssetMenu(menuName = "Simple SOAP/Events/Boolean Event")]
     public class BoolEvent : GameEvent<bool>, ISerializedRaise
     {
         public bool HasArgument => true;
