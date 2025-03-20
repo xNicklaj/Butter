@@ -4,9 +4,9 @@ using UnityEngine.Serialization;
 
 namespace Nicklaj.SimpleSOAP
 {
-    public class ScriptableDataSaveManager : MonoBehaviour
+    public class PersistentDataManager : MonoBehaviour
     {
-        [FormerlySerializedAs("scriptableDataMasterList")] public PersistentDataMasterList persistentDataMasterList;
+        public PersistentDataMasterList persistentDataMasterList;
 
         public void SaveData()
         {

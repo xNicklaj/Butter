@@ -11,6 +11,10 @@ namespace Nicklaj.SimpleSOAP
     [CreateAssetMenu(fileName = "Persistent Data", menuName = "Simple SOAP/Persistent Data Master List")]
     public class PersistentDataMasterList : ScriptableObject
     {
+        /// <summary>
+        /// Path under Application.persistentDataPath that will store the master list data.
+        /// This must be a .json, however you can leave the json out of the path and it will be automatically appended.
+        /// </summary>
         public string SavePath;
         public List<ScriptableObject> List = new();
 
