@@ -5,16 +5,17 @@ Most of my knowledge has been taken from these sources:
 - [Unite Austin 2017 - Game Architecture with Scriptable Objects](https://youtu.be/raQ3iHhE_Kk)
 - [Improve your Game Architecture with Scriptable Objects](https://youtu.be/bO8WOHCxPq8)
 - [Game architecture with ScriptableObjects | Open Projects Devlog](https://youtu.be/WLDgtRNK2VE)
+- [Create modular game architecture in Unity with ScriptableObjects](https://unity.com/resources/create-modular-game-architecture-with-scriptable-objects-ebook)
 
 
-## Functionalities
+## Features
 Before starting this section, keep in mind that Scriptable Objects live in the game's memory outside of a scene, and are generally publicly accessible by all memebers, which is why they are a good way to implement data decoupling and dependency inversion.
 ### Scriptable Variables
 A Scriptable Variable is a runtime variable that can represent a piece of data that you want to reference from different points. It can be player health, score, a simple flag to check whether you pressed New Game or Continue in the main menu... you can do pretty much anything with it, but it's supposed to be an atomic piece of data.
 
 ScriptableVariables also offer a `OnValueChanged` Unity Action that you can use to listen for changes.
 
-By default the framework includes variables of common types like Int, Float, String and Bool, but you can extend `ScriptableVariable<T>` to implement your own custom data that is automatically integrated with the framework, just remember to use the `CreateAssetMenu` decorator.
+By default the framework includes variables of common types like Int, Float, String, Bool, Vector2 and Vector3 but you can extend `ScriptableVariable<T>` to implement your own custom data that is automatically integrated with the framework, just remember to use the `CreateAssetMenu` decorator.
 
 Scriptable Variables can also implement a `IPersistentData` interface to define the serialization / deserialization behaviour as persistent data. Persistent variables must be inserted in a `Persistent Data Master List` and the scene must have a GameObject with a `PersistentDataManager` component.
 
@@ -42,3 +43,16 @@ I'm also including a `RuntimeSetSubscriber` MonoBehaviour class that adds the Ga
 
 >[!warning]
 >Runtime sets are pretty much stretching the limits of what a Scriptable Object can do, while they do work in runtime, *technically* you can't serialize references of runtime data inside a Scriptable, so ~~if you go to the inspector it will give you a "Mismatched Type" sign~~ to fix this I'm rendering a list with all the item names, for visualization purposes only.
+
+### Installation
+Navigate to the unity package manager, press the + icon to add a package and select "*Install Package from git URL*". Finally input `https://github.com/xNicklaj/SimpleSOAP.git` as URL.
+
+This should install the whole library. To check that it's working you can right click anywhere in your *Assets* folder and make sure that under *Create* you have `Simple SOAP`
+
+### TODO
+This is a list of features I'd like to see implemented. The order does not necessarily imply priority.
+
+- [ ] Add Object Pools as native scriptables.
+- [ ] Custom editor renderer for list properties and dictionaries.
+- [ ] Native color variable.
+- [ ] Custom icons for variables, events and sets.
