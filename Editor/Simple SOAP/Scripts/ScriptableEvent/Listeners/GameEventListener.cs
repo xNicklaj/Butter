@@ -18,8 +18,8 @@ namespace Nicklaj.SimpleSOAP
         [SerializeField] UnityEvent<T> _response;
 
         public void Awake() => Target = this.gameObject;
-        void OnEnable() => _gameEvent.RegisterListener(this);
-        void OnDisable() => _gameEvent.DeregisterListener(this);
+        void OnEnable() => _gameEvent?.RegisterListener(this);
+        void OnDisable() => _gameEvent?.DeregisterListener(this);
         
         public GameObject Target { get; set; }
         public void OnEventRaised(T data) => _response.Invoke(data);
