@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,7 +18,11 @@ namespace Nicklaj.SimpleSOAP
     }
 
     #region Drawer
+
     [CustomEditor(typeof(FloatEvent), true)]
-    public class FloatEventDrawer : SerializedRaiseEditor { }
+    public class FloatEventDrawer : GameEventEditor<float>
+    {
+        protected override List<IGameEventListener<float>> GetListeners(Object target) => (target as FloatEvent)?.Listeners;
+    }
     #endregion Drawer
 }

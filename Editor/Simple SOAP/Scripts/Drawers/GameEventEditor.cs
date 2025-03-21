@@ -1,13 +1,15 @@
 using UnityEngine;
 using UnityEditor;
 using System;
+using System.Collections.Generic;
+using Object = UnityEngine.Object;
 
 namespace Nicklaj.SimpleSOAP
 {
     /// <summary>
     /// Custom editor for any ScriptableObject that implements ISerializedRaise interface
     /// </summary>
-    public class SerializedRaiseEditor : Editor
+    public abstract class GameEventEditor<T> : Editor
     {
         private string inputArgument = "";
         private bool useDebugLogs = false;
@@ -75,6 +77,27 @@ namespace Nicklaj.SimpleSOAP
                     if (useDebugLogs) Debug.Log($"Event raised with argument: {(string.IsNullOrEmpty(inputArgument) ? "[none]" : inputArgument)}");
                 }
             }
+            
+            
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
+            EditorGUILayout.Space();
+            
+            if (GetListeners(target).Count > 0)
+            {
+                foreach (var listener in GetListeners(target))
+                {
+                    if (GUILayout.Button(listener.Target.name))
+                    {
+                        Selection.activeObject = listener.Target;
+                        EditorGUIUtility.PingObject(listener.Target);
+                    }  
+                }  
+            }
+            else
+            {
+                EditorGUILayout.HelpBox("No listeners Attached", MessageType.Info);
+            }
         }
 
         // Helper method to provide a hint based on the event type name
@@ -89,6 +112,8 @@ namespace Nicklaj.SimpleSOAP
 
             return "Enter value";
         }
+        
+        protected abstract List<IGameEventListener<T>> GetListeners(Object target);
     }
 
 }

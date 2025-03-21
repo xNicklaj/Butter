@@ -1,4 +1,5 @@
-﻿using UnityEditor;
+﻿using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 namespace Nicklaj.SimpleSOAP
@@ -15,7 +16,11 @@ namespace Nicklaj.SimpleSOAP
     }
 
     #region Drawer
+
     [CustomEditor(typeof(StringEvent), true)]
-    public class StringEventDrawer : SerializedRaiseEditor { }
+    public class StringEventDrawer : GameEventEditor<string>
+    {
+        protected override List<IGameEventListener<string>> GetListeners(Object target) => (target as StringEvent)?.Listeners;
+    }
     #endregion Drawer
 }

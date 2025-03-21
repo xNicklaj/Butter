@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -16,7 +17,11 @@ namespace Nicklaj.SimpleSOAP
     }
 
     #region Drawer
+
     [CustomEditor(typeof(IntEvent), true)]
-    public class IntEventDrawer : SerializedRaiseEditor { }
+    public class IntEventDrawer : GameEventEditor<int>
+    {
+        protected override List<IGameEventListener<int>> GetListeners(Object target) => (target as IntEvent)?.Listeners;
+    }
     #endregion Drawer
 }

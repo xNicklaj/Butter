@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
@@ -17,7 +18,11 @@ namespace Nicklaj.SimpleSOAP
     }
 
     #region Drawer
+
     [CustomEditor(typeof(BoolEvent), true)]
-    public class BoolEventDrawer : SerializedRaiseEditor { }
+    public class BoolEventDrawer : GameEventEditor<bool>
+    {
+        protected override List<IGameEventListener<bool>> GetListeners(Object target) => (target as BoolEvent)?.Listeners;
+    }
     #endregion Drawer
 }

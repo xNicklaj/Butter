@@ -11,7 +11,8 @@ namespace Nicklaj.SimpleSOAP
     /// <typeparam name="T"></typeparam>
     public class GameEvent<T> : ScriptableObject
     {
-        readonly List<IGameEventListener<T>> listeners = new();
+        protected readonly List<IGameEventListener<T>> listeners = new();
+        public List<IGameEventListener<T>> Listeners => listeners;
 
         public void Raise(T data)
         {
@@ -43,7 +44,10 @@ namespace Nicklaj.SimpleSOAP
 
     #region Drawer
     [CustomEditor(typeof(GameEvent), true)]
-    public class GameEventDrawer : SerializedRaiseEditor { }
+    public class GameEventDrawer : GameEventEditor<Unit>
+    {
+        protected override List<IGameEventListener<Unit>> GetListeners(Object target) => (target as GameEvent)?.Listeners;
+    }
     #endregion Drawer
 
     public struct Unit
