@@ -82,6 +82,7 @@ namespace Nicklaj.SimpleSOAP
             EditorGUILayout.Space();
             EditorGUILayout.LabelField("", GUI.skin.horizontalSlider);
             EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Attached Listeners", EditorStyles.boldLabel);
             
             if (GetListeners(target).Count > 0)
             {
@@ -99,8 +100,12 @@ namespace Nicklaj.SimpleSOAP
                 EditorGUILayout.HelpBox("No listeners Attached", MessageType.Info);
             }
         }
-
-        // Helper method to provide a hint based on the event type name
+        
+        /// <summary>
+        /// Helper method to provide a hint based on the event type name
+        /// </summary>
+        /// <param name="typeName"></param>
+        /// <returns></returns>
         private string GetPlaceholderFromTypeName(string typeName)
         {
             if (typeName.Contains("Int")) return "Integer value (e.g. 42)";
@@ -113,8 +118,14 @@ namespace Nicklaj.SimpleSOAP
             return "Enter value";
         }
         
+        /// <summary>
+        /// Method used to return the listeners to the GameEventEditor. It's necessary to override it to maintain proper address structure.
+        /// </summary>
+        /// <param name="target"></param>
+        /// <returns></returns>
         protected abstract List<IGameEventListener<T>> GetListeners(Object target);
     }
+    
 
 }
 
