@@ -32,7 +32,21 @@ namespace Nicklaj.SimpleSOAP
     {
         protected override string DisplayString(ScriptableVariable<string> scriptableVariable)
         {
-            return $"Current Value: {scriptableVariable.Value}";
+            return $"{scriptableVariable.Value}";
+        }
+        
+        protected override void DrawField(Rect rect, ScriptableVariable<string> variable)
+        {
+            EditorGUI.BeginChangeCheck();
+            var arg = EditorGUI.TextField(
+                rect,
+                "Value",
+                variable.Value
+            );
+            if (EditorGUI.EndChangeCheck())
+            {
+                variable.Value = arg;    
+            }
         }
     }
     #endregion

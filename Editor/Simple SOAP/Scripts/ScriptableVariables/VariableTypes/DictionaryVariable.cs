@@ -10,6 +10,7 @@ namespace Nicklaj.SimpleSOAP
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="TValue"></typeparam>
+    [Obsolete]
     public class DictionaryVariable<TKey, TValue> : ScriptableVariable<Dictionary<TKey, TValue>>, IPersistentData
     {
         public string PersistencyId { get; set; }

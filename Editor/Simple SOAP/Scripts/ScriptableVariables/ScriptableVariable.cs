@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 namespace Nicklaj.SimpleSOAP
 {
-    public class ScriptableVariable<T> : RuntimeScriptableObject
+    public abstract class ScriptableVariable<T> : RuntimeScriptableObject
     {
         [SerializeField] T _initialValue;
         [SerializeField] T _value;
