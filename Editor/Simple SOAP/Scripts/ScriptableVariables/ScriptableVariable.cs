@@ -19,13 +19,13 @@ namespace Nicklaj.SimpleSOAP
             {
                 if (this._value.Equals(value)) return;
                 this._value = value;
-                OnValueChanged.Invoke(value);
+                OnValueChanged?.Invoke(value);
             }
         }
 
         protected override void OnReset()
         {
-            OnValueChanged.Invoke(_value = _initialValue);
+            OnValueChanged?.Invoke(_value = _initialValue);
         }
     }
 }

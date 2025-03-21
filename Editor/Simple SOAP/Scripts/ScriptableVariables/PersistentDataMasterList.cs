@@ -64,7 +64,13 @@ namespace Nicklaj.SimpleSOAP
                     Debug.LogWarning("Variable " + variable.name + " is not ISaveScriptableData. Skipping variable.");
                     continue;
                 }
-                (variable as IPersistentData).Deserialize(JsonEncoded[(variable as IPersistentData).PersistencyId]);
+
+                try
+                {
+                    (variable as IPersistentData).Deserialize(JsonEncoded[(variable as IPersistentData).PersistencyId]);
+                }
+                catch (NullReferenceException _) {  }
+
             }
         }
 

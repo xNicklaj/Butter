@@ -1,6 +1,6 @@
 {
   "name": "nicklaj.simplesoap",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "displayName": "SimpleSOAP",
   "description": "Simple free library that introduces SOAP functionalities.",
   "unity": "6000.0",

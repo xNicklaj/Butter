@@ -1,3 +1,4 @@
+using System;
 using UnityEditor;
 using UnityEngine;
 
@@ -71,7 +72,12 @@ namespace Nicklaj.SimpleSOAP
                     // Initialize the display value
                     valueDisplayCache[variableId] = DisplayString(variable);
                 }
-                DrawField(valueLabelRect, variable);
+
+                try
+                {
+                    DrawField(valueLabelRect, variable);    
+                } catch(NullReferenceException _) {}
+                
             }
             else
             {

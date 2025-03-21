@@ -67,6 +67,12 @@ namespace Nicklaj.SimpleSOAP
     [CreateAssetMenu(fileName = "String List Variable", menuName = "Simple SOAP/Variables/Lists/String List")]
     public class StringListVariable : ListVariable<string> { }
 
+    [CreateAssetMenu(fileName = "Vector2 List Variable", menuName = "Simple SOAP/Variables/Lists/Vector2 List")]
+    public class Vector2ListVariable : ListVariable<Vector2> { }
+    
+    [CreateAssetMenu(fileName = "Vector3 List Variable", menuName = "Simple SOAP/Variables/Lists/Vector3 List")]
+    public class Vector3ListVariable : ListVariable<Vector3> { }
+    
     #endregion
 }
 // How do I serialize this?

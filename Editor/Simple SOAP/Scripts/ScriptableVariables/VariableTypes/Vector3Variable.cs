@@ -1,24 +1,23 @@
-using System;
+﻿using System;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 
-
 namespace Nicklaj.SimpleSOAP
 {
-    [CreateAssetMenu(fileName = "Float Variable", menuName = "Simple SOAP/Variables/Float")]
-    public class FloatVariable : ScriptableVariable<float>, IPersistentData
+    [CreateAssetMenu(fileName = "Vector3 Variable", menuName = "Simple SOAP/Variables/Vector3")]
+    public class Vector3Variable : ScriptableVariable<Vector3>, IPersistentData
     {
         public string PersistencyId { get; set; }
 
         public string Serialize()
         {
-            return Value.ToString();
+            return JsonConvert.SerializeObject(Value);
         }
 
         public void Deserialize(string data)
         {
-            Value = float.Parse(data);
+            Value = JsonConvert.DeserializeObject<Vector3>(data);
         }
         
         private void Awake()
@@ -27,21 +26,20 @@ namespace Nicklaj.SimpleSOAP
                 PersistencyId = Guid.NewGuid().ToString();
         }
     }
-
-
+    
     #region Custom Drawer
-    [CustomPropertyDrawer(typeof(FloatVariable))]
-    public class FloatVariableDrawer : VariableDrawer<float>
+    [CustomPropertyDrawer(typeof(Vector3Variable))]
+    public class Vector3VariableDrawer : VariableDrawer<Vector3>
     {
-        protected override string DisplayString(ScriptableVariable<float> scriptableVariable)
+        protected override string DisplayString(ScriptableVariable<Vector3> scriptableVariable)
         {
             return $"{scriptableVariable.Value}";
         }
         
-        protected override void DrawField(Rect rect, ScriptableVariable<float> variable)
+        protected override void DrawField(Rect rect, ScriptableVariable<Vector3> variable)
         {
             EditorGUI.BeginChangeCheck();
-            var arg = EditorGUI.FloatField(
+            var arg = EditorGUI.Vector3Field(
                 rect,
                 "Value",
                 variable.Value
