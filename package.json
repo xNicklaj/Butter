@@ -1,9 +1,9 @@
 {
-  "name": "nicklaj.simplesoap",
-  "version": "0.4.0",
-  "displayName": "SimpleSOAP",
+  "name": "nicklaj.butter",
+  "version": "0.5.0",
+  "displayName": "Butter",
   "description": "Simple free library that introduces SOAP functionalities.",
-  "unity": "6000.0",
+  "unity": "2022.3",
   "author": {
     "name": "Nicklaj"
   }
