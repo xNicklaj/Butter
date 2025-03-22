@@ -32,7 +32,7 @@ This is because a `MonoBehaviour` always lives in the scene, and guess what does
 
 Moreover we will see in a later page how holding data in a scriptable will be useful to bind data to UI without touching a single line of code.
 
-Let's head to our asset explorer and right click, then navigate to `Create > Simple SOAP > Variables > Float`
+Let's head to our asset explorer and right click, then navigate to `Create > Butter > Variables > Float`
 
 ![](/Docs/Assets/Float_Variable.png)
 

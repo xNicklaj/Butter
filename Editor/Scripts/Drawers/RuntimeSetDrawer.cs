@@ -3,7 +3,7 @@ using UnityEditor;
 
 namespace Nicklaj.Butter
 {
-    public class RuntimeSetDrawer : Editor
+    public abstract class RuntimeSetDrawer<T> : Editor
     {
         private IRuntimeSet raiseTarget;
         private bool isRaiseTarget = false;
@@ -20,7 +20,16 @@ namespace Nicklaj.Butter
             // Draw the default inspector
             DrawDefaultInspector();
             if (!isRaiseTarget) return;
-            EditorGUILayout.HelpBox($"This list is for debug and visualization purposes only, as Scriptables cannot serialize runtime data. Do not modify.", MessageType.Info);
+            int elems = (target as RuntimeSetBase<T>).Items.Count;
+            string suffix = elems > 0 ? "(" + elems + ")" : "";
+            EditorGUILayout.LabelField($"Values {suffix}");
+            if ((target as RuntimeSetBase<T>).Items.Count > 0)
+                DrawItems();
+            else
+                EditorGUILayout.HelpBox($"Set is empty", MessageType.None);
+            EditorGUILayout.HelpBox($"This list is for visualization purposes only, do not modify.", MessageType.Info);
         }
+
+        public abstract void DrawItems();
     }
 }

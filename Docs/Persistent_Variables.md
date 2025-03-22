@@ -1,5 +1,5 @@
 ### Enabling persistency for Scriptable Variables
-All games use save data to ensure that player progress isn't lost. Well Simple SOAP supports Variable Persistency with a simple drag and drop.
+All games use save data to ensure that player progress isn't lost. Well Butter supports Variable Persistency with a simple drag and drop.
 
 In the previous pages I've shown how to use Scriptable Variables and Scriptable Events. I will use these two components in this demo, so if you don't know what these are go back and explore the previous pages. This demo will be a followup to the scenario created in the first page of the docs.
 

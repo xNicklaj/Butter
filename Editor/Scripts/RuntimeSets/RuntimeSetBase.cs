@@ -16,17 +16,13 @@ namespace Nicklaj.Butter
         /// Item set.
         /// </summary>
         [NonSerialized] public List<T> Items = new List<T>();
-        /// <summary>
-        /// List with the names of all elements. Note that this doesn't grant you access to the elements itself, it's just a quick and dirty way to visualize them in the inspector. For the actual references get Items.
-        /// </summary>
-        public List<string> ItemNames = new List<string>();
+
 
         public void Add(T item)
         {
             if (!Items.Contains(item))
             {
                 Items.Add(item);
-                ItemNames.Add(item.ToString());
             }
                 
         }
@@ -36,7 +32,6 @@ namespace Nicklaj.Butter
             if (Items.Contains(item))
             {
                 Items.Remove(item);
-                ItemNames.Remove(item.ToString());
             }
         }
         
@@ -44,19 +39,6 @@ namespace Nicklaj.Butter
         {
             if (Items != null && Items.Count > 0)
                 Items.Clear();
-            if(ItemNames != null && ItemNames.Count > 0)
-                ItemNames.Clear();
         }
     }
-
-    [CreateAssetMenu(menuName = "Butter/Runtime Sets/GameObject Runtime Set")]
-    public class GameObjectRuntimeSet : RuntimeSetBase<GameObject>
-    {
-
-    }
-
-    #region Custom Editor
-    [CustomEditor(typeof(RuntimeSetBase<GameObject>), true)]
-    public class GameObjectRuntimeSetDrawer : RuntimeSetDrawer { }
-    #endregion
 }

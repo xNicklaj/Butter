@@ -3,12 +3,12 @@ In some occasions it can be convenient to keep track of a list of GameObjects or
 
 Scriptable Objects also allow to easily keep track of objects (or script instances) via runtime sets, that basically are just scriptable lists that guarantee unique items. 
 
-There are two ways to go about creating runtime sets: if you want to save reference to the GameObjects you can use the component integrated with Simple SOAP, otherwise you'll have to derive its base class to create your own component.
+There are two ways to go about creating runtime sets: if you want to save reference to the GameObjects you can use the component integrated with Butter otherwise you'll have to derive its base class to create your own component.
 
 ### Keeping track of Game Objects
 This is the easiest method, as it doesn't require any additional code at all to work.
 
-Let's assume we have a simple spawning script that spawns enemies. Enemies come from a prefab `PEnemy`. As usual, to create a new runtime set right click in the asset explorer `Create > Simple SOAP > Runtime Sets > GameObject Runtime Set`.
+Let's assume we have a simple spawning script that spawns enemies. Enemies come from a prefab `PEnemy`. As usual, to create a new runtime set right click in the asset explorer `Create > Butter > Runtime Sets > GameObject Runtime Set`.
 
 ![](/Docs/Assets/Runtime_Set.png)
 
@@ -24,7 +24,22 @@ Now in any other script you can reference the set that will be updated your runt
 To create a new type of runtime set, all you have to do is create a new class that extends from `RuntimeSetBase` and give it a type.
 
 ```csharp
+[CreateAssetMenu(fileName = "EnemyAIRuntimeSet", menuName = "Scriptable Objects/EnemyAI Runtime Set")]
 public class EnemyAIRuntimeSet : RuntimeSetBase<EnemyAI> { }
+
+#region Custom Editor
+[CustomEditor(typeof(EnemyAIRuntimeSet), true)]
+public class GameObjectRuntimeSetDrawer : RuntimeSetDrawer<EnemyAI>
+{
+    public override void DrawItems()
+    {
+        foreach (EnemyAI item in (target as EnemyAIRuntimeSet).Items)
+        {
+            EditorGUILayout.ObjectField(item, typeof(EnemyAI), true);
+        }
+    }
+}
+#endregion
 ```
 
 Then, either in your script or by creating a new subscriber you can assign the GameObject to the runtime set. 

@@ -9,7 +9,7 @@ For the sake of the tutorial I will assume you know how to setup a rigidbody on 
 
 ![](/Docs/Assets/Scene_Event.png)
 
-As usual the first step is to go the asset explorer and create a new scriptable event of type int, which you can find under `Create > Simple SOAP > Events`. 
+As usual the first step is to go the asset explorer and create a new scriptable event of type int, which you can find under `Create > Butter > Events`. 
 
 ![](/Docs/Assets/Area_Event.png)
 
