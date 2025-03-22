@@ -12,7 +12,7 @@ Let's assume we have a simple spawning script that spawns enemies. Enemies come 
 
 ![](/Docs/Assets/Runtime_Set.png)
 
-Everything is pretty straightforward with runtime sets, however there is one thing you should take not of. Unity **cannot** serialize `GameObjects` references from Scriptables, not without a custom inspector at the very least. If you tried to access the list directly from the inspector you would see an ominous `Mismatched Type` in every entry, hence I have disabled the list view and instead I'm showing a list of all the names of the subscribed objects. In the future I might implement a custom editor to display the objects properly.
+Everything is pretty straightforward with runtime sets, however there is one thing you should take not of. Unity **cannot** serialize `GameObjects` references from Scriptables, not without a custom inspector at the very least. If you tried to access the list directly from the inspector you would see an ominous `Mismatched Type` in every entry, hence I have disabled the list view and instead I'm showing a custom debug-only list of all the subscribed objects.
 
 Now, back to the task let's go to our `PEnemey` prefab and add a new `RuntimeSetSubscriber` component. This only takes a runtime set as a field, so assign it and you're done. 
 
@@ -41,6 +41,8 @@ public class GameObjectRuntimeSetDrawer : RuntimeSetDrawer<EnemyAI>
 }
 #endregion
 ```
+
+The custom editor is not strictly necessary when creating your own type, however without it you won't be able to see the current elements in the inspector when focusing the set. They will still be there, you just won't be able to see them.
 
 Then, either in your script or by creating a new subscriber you can assign the GameObject to the runtime set. 
 
