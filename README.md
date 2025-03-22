@@ -11,6 +11,8 @@ Most of my knowledge has been taken from these sources:
 ## Features
 Before starting this section, keep in mind that Scriptable Objects live in the game's memory outside of a scene, and are generally publicly accessible by all memebers, which is why they are a good way to implement data decoupling and dependency inversion.
 
+For use cases check out the [wiki](https://github.com/xNicklaj/Butter/wiki).
+
 ### Scriptable Variables
 A Scriptable Variable is a runtime variable that can represent a piece of data that you want to reference from different points. It can be player health, score, a simple flag to check whether you pressed New Game or Continue in the main menu... you can do pretty much anything with it, but it's supposed to be an atomic piece of data.
 
