@@ -107,6 +107,6 @@ class Healer : MonoBehaviour {
 
 Now our healer will heal the player of 5 points each second and the player will print to console every time the value is changed.
 
-TODO Add Picture
+![](/Docs/Assets/Float_Variable_Print.png)
 
 Neat, isn't it? Next up is how to use Scriptable Events to power up your code and stop using event managers.

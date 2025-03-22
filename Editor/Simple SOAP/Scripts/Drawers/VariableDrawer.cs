@@ -65,7 +65,12 @@ namespace Nicklaj.SimpleSOAP
                     variable.OnValueChanged += _ => {
                         // Update the cached display value and force a repaint
                         valueDisplayCache[variableId] = DisplayString(variable);
-                        EditorUtility.SetDirty(property.serializedObject.targetObject);
+                        try
+                        {
+                            EditorUtility.SetDirty(property.serializedObject.targetObject);
+                        }
+                        catch (Exception e) { }
+
                     };
                     subscribedVariables.Add(variableId);
                     

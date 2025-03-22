@@ -2,9 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using Unity.Plastic.Newtonsoft.Json;
-using UnityEditor.Overlays;
 using UnityEngine;
-using System.IO;
 
 namespace Nicklaj.SimpleSOAP
 {
