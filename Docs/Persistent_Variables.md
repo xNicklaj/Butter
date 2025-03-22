@@ -31,3 +31,6 @@ This will create the json save data and whenever you raise `LoadEvent`, the data
 ![](/Docs/Assets/Load_Console.png)
 
 Using events is not the only way you can invoke these two methods of course, but as you can see this allows you to cut down on the amount of code required to do a lot of stuff.
+
+> [!warning]
+> Scriptable Variables are still subject to the `Reset On` field, which by default is set to `Scene Loaded`. In other words, if you find that when changing scene your variables lose their loaded state, simply change the `Reset On` field to `Application Start` or `None`.
