@@ -1,5 +1,5 @@
 This library is my personal implementation of the SOAP architecture.
-It's free to use in *any* case, for those who don't have enough money to buy the actual SOAP asset.
+It's free to use for personal and non-commercial projects.
 
 Most of my knowledge has been taken from these sources:
 - [Unite Austin 2017 - Game Architecture with Scriptable Objects](https://youtu.be/raQ3iHhE_Kk)
@@ -28,9 +28,9 @@ These can be useful to quickly define sets of items that you might want to refer
 In his talk at Unity, Ryan Hipple explains how at Schell Games they used this technique to quickly add some enemies to a set and reference them from another script that applied a custom renderer on top of them.
 
 ### Installation
-Navigate to the unity package manager, press the + icon to add a package and select "*Install Package from git URL*". Finally input `https://github.com/xNicklaj/SimpleSOAP.git` as URL.
+Navigate to the unity package manager, press the + icon to add a package and select "*Install Package from git URL*". Finally input `https://github.com/xNicklaj/Butter.git` as URL.
 
-This should install the whole library. To check that it's working you can right click anywhere in your *Assets* folder and make sure that under *Create* you have `Simple SOAP`
+This should install the whole library. To check that it's working you can right click anywhere in your *Assets* folder and make sure that under *Create* you have `Butter`
 
 ### TODO
 This is a list of features I'd like to see implemented. The order does not necessarily imply priority.
