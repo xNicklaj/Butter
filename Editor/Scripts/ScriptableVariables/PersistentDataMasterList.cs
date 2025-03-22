@@ -30,13 +30,14 @@ namespace Nicklaj.Butter
         {
             if (!SanityCheck()) return;
             string data = File.ReadAllText(_finalPath);
+            Debug.Log($"Reading data from {_finalPath}");
             DeserializeData(data);
             
         }
 
         private string SerializeData()
         {
-            Dictionary<string, string> JsonEncoded = new();
+            Dictionary<string, string> jsonEncoded = new();
             foreach (var variable in List)
             {
                 if (variable is not IPersistentData scriptableObject)
@@ -45,15 +46,15 @@ namespace Nicklaj.Butter
                     continue;
                 }
                 string data = (variable as IPersistentData).Serialize();
-                JsonEncoded.Add((variable as IPersistentData).PersistencyId, data);
+                jsonEncoded.Add((variable as IPersistentData).PersistencyId, data);
             }
-            return JsonConvert.SerializeObject(JsonEncoded);
+            return JsonConvert.SerializeObject(jsonEncoded);
         }
 
         private void DeserializeData(string data)
         {
-            Dictionary<string, string> JsonEncoded = new();
-            JsonEncoded = JsonConvert.DeserializeObject<Dictionary<string, string>>(data);
+            Dictionary<string, string> jsonEncoded = new();
+            jsonEncoded = JsonConvert.DeserializeObject<Dictionary<string, string>>(data);
 
             foreach (var variable in List)
             {
@@ -65,19 +66,19 @@ namespace Nicklaj.Butter
 
                 try
                 {
-                    (variable as IPersistentData).Deserialize(JsonEncoded[(variable as IPersistentData).PersistencyId]);
+                    (variable as IPersistentData).Deserialize(jsonEncoded[(variable as IPersistentData).PersistencyId]);
                 }
                 catch (NullReferenceException _) {  }
 
             }
         }
 
-
         private void OnValidate()
         {
             _finalPath = Path.Join(Application.persistentDataPath, SavePath);
             if(!_finalPath.EndsWith(".json"))
                 _finalPath += ".json";
+            _finalPath = _finalPath.Replace("\\", "/");
         }
 
         private bool SanityCheck()
