@@ -75,7 +75,7 @@ public class EnemyAISubscriber : MonoBehaviour
     [SerializeField] private EnemyAI _enemyAI
     {
         get => _enemyAI ??= GetComponent<EnemyAI>();
-        set => _enemyAI  = value;
+        set => _enemyAI = value;
     }
 
     private void OnEnable()
