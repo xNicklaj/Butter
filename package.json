@@ -6,5 +6,27 @@
   "unity": "2022.3",
   "author": {
     "name": "Nicklaj"
-  }
+  },
+  "samples": [
+    {
+      "displayName": "Scriptable Variables",
+      "description": "A sample demonstrating the use of scriptable variables..",
+      "path": "Samples~/1. Variables"
+    },
+    {
+      "displayName": "Scriptable Events",
+      "description": "A sample demonstrating the use of scriptable events.",
+      "path": "Samples~/2. Events"
+    },
+    {
+      "displayName": "Data Persistency",
+      "description": "A sample demonstrating the use of data persistency.",
+      "path": "Samples~/3. Persistency"
+    },
+    {
+      "displayName": "Runtime Sets",
+      "description": "A sample demonstrating the use of runtime sets.",
+      "path": "Samples~/4. Runtime Sets"
+    }
+  ]
 }
