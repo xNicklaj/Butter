@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace Dev.Nicklaj.Butter
         public void OnRaiseButtonSubmit(string arg0 = "")
         {
             // Try to parse the input as a float
-            if (float.TryParse(arg0, out float result) == false) return;
+            if (float.TryParse(arg0, NumberStyles.Float, CultureInfo.InvariantCulture, out float result) == false) return;
             this.Raise(result);
         }
     }
