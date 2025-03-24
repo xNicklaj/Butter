@@ -93,7 +93,7 @@ Our enemies were correctly created, now let's collide with a couple of them to s
 
 | Console | Hierarchy |
 | - | - |
-| ![](/Docs~/Assets/Pool_Hierarchy.png) | ![](/Docs~/Assets/Pool_Hierarchy.png) |
+| ![](/Docs~/Assets/Pool_Console_1.png) | ![](/Docs~/Assets/Pool_Hierarchy.png) |
 
 It sure looks like everything is working. When enemies get killed they actually deactivate rather than get destroyed.
 
