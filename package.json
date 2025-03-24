@@ -7,14 +7,15 @@
   "author": {
     "name": "Nicklaj"
   },
+  "documentation_url": "https://github.com/xNicklaj/Butter/wiki",
   "samples": [
     {
-      "displayName": "Scriptable Variables",
+      "displayName": "Variables",
       "description": "A sample demonstrating the use of scriptable variables..",
       "path": "Samples~/1. Variables"
     },
     {
-      "displayName": "Scriptable Events",
+      "displayName": "Events",
       "description": "A sample demonstrating the use of scriptable events.",
       "path": "Samples~/2. Events"
     },
@@ -27,6 +28,11 @@
       "displayName": "Runtime Sets",
       "description": "A sample demonstrating the use of runtime sets.",
       "path": "Samples~/4. Runtime Sets"
+    },
+    {
+      "displayName": "Object Pools",
+      "description": "A sample demonstrating the use of object pools.",
+      "path": "Samples~/5. Object Pools"
     }
   ]
 }
