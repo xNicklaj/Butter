@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine.Events;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     /// <summary>
     /// Extendable class for creating dictionary variables.

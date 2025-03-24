@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(menuName = "Butter/Events/Boolean Event")]
     public class BoolEvent : GameEvent<bool>, ISerializedRaise

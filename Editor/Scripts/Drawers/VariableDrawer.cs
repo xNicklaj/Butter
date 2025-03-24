@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     public abstract class VariableDrawer<T> : PropertyDrawer
     {
@@ -69,7 +69,7 @@ namespace Nicklaj.Butter
                         {
                             EditorUtility.SetDirty(property.serializedObject.targetObject);
                         }
-                        catch (Exception e) { }
+                        catch (Exception) { }
 
                     };
                     subscribedVariables.Add(variableId);
@@ -81,7 +81,7 @@ namespace Nicklaj.Butter
                 try
                 {
                     DrawField(valueLabelRect, variable);    
-                } catch(NullReferenceException _) {}
+                } catch(NullReferenceException) {}
                 
             }
             else

@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(menuName = "Butter/Events/Vector3 Event")]
     public class Vector3Event : GameEvent<Vector3>, ISerializedRaise

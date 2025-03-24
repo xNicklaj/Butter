@@ -3,7 +3,7 @@ using System;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     /// <summary>
     /// Generic GameEventListener. You can set any type of data that will be sent when the GameEvent is raised. Couples with GameEvent.

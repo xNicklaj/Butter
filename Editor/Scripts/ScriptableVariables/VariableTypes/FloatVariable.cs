@@ -4,7 +4,7 @@ using UnityEditor;
 using UnityEngine;
 
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(fileName = "Float Variable", menuName = "Butter/Variables/Float")]
     public class FloatVariable : ScriptableVariable<float>, IPersistentData

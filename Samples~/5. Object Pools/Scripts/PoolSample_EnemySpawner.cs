@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using Nicklaj.Butter;
+using Dev.Nicklaj.Butter;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

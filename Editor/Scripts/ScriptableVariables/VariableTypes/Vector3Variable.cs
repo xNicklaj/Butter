@@ -3,7 +3,7 @@ using Unity.Plastic.Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(fileName = "Vector3 Variable", menuName = "Butter/Variables/Vector3")]
     public class Vector3Variable : ScriptableVariable<Vector3>, IPersistentData

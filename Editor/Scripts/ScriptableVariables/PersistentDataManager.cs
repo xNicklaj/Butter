@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     public class PersistentDataManager : MonoBehaviour
     {

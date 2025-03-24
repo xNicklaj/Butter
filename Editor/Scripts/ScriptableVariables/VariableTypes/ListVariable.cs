@@ -5,7 +5,7 @@ using Unity.Plastic.Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine.Events;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     public class ListVariable<T> : ScriptableVariable<List<T>>, IPersistentData
     {

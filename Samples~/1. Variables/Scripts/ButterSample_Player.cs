@@ -1,4 +1,4 @@
-using Nicklaj.Butter;
+using Dev.Nicklaj.Butter;
 using UnityEngine;
 
 class ButterSample_Player : MonoBehaviour {

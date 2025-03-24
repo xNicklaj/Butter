@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEditor;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     public abstract class RuntimeSetDrawer<T> : Editor
     {

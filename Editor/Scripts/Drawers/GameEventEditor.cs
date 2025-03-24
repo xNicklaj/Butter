@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using Object = UnityEngine.Object;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     /// <summary>
     /// Custom editor for any ScriptableObject that implements ISerializedRaise interface

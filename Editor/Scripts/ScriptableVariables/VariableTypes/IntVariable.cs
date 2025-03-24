@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace Nicklaj.Butter 
+namespace Dev.Nicklaj.Butter 
 {
     [CreateAssetMenu(fileName = "Int Variable", menuName = "Butter/Variables/Integer")]
     public class IntVariable : ScriptableVariable<int>, IPersistentData

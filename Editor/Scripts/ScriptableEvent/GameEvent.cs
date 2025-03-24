@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEditor;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     /// <summary>
     /// Generic GameEvent that will send a data of type T when raised. Couples with GameEventListener.

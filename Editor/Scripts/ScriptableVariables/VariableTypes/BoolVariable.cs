@@ -2,7 +2,7 @@ using System;
 using UnityEditor;
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(fileName = "Bool Variable", menuName = "Butter/Variables/Boolean")]
     public class BoolVariable : ScriptableVariable<bool>, IPersistentData

@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.Pool;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(fileName = "ScriptablePool", menuName = "Butter/Object Pool")]
     public class ScriptablePool : ScriptableObject

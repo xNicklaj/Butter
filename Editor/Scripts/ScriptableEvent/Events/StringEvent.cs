@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(menuName = "Butter/Events/String Event")]
     public class StringEvent : GameEvent<string>, ISerializedRaise

@@ -3,7 +3,7 @@ using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     public abstract class ScriptableVariable<T> : RuntimeScriptableObject
     {

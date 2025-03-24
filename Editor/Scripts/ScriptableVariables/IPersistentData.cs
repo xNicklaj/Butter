@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     public interface IPersistentData
     {

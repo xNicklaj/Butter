@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(menuName = "Butter/Events/Float Event")]
     public class FloatEvent : GameEvent<float>, ISerializedRaise

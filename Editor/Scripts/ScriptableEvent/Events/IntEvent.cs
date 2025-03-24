@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(menuName = "Butter/Events/Integer Event")]
     public class IntEvent : GameEvent<int>, ISerializedRaise

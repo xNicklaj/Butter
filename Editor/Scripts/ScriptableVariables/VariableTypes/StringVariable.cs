@@ -2,7 +2,7 @@
 using UnityEditor;
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(fileName = "String Variable", menuName = "Butter/Variables/String")]
     public class StringVariable : ScriptableVariable<string>, IPersistentData

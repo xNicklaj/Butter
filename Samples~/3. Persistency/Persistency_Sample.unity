@@ -228,7 +228,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 436713600}
-        m_TargetAssemblyTypeName: Nicklaj.Butter.PersistentDataManager, nicklaj.butter.editor
+        m_TargetAssemblyTypeName: Dev.Nicklaj.Butter.PersistentDataManager, nicklaj.butter.editor
         m_MethodName: LoadData
         m_Mode: 1
         m_Arguments:
@@ -256,7 +256,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 436713600}
-        m_TargetAssemblyTypeName: Nicklaj.Butter.PersistentDataManager, nicklaj.butter.editor
+        m_TargetAssemblyTypeName: Dev.Nicklaj.Butter.PersistentDataManager, nicklaj.butter.editor
         m_MethodName: SaveData
         m_Mode: 1
         m_Arguments:

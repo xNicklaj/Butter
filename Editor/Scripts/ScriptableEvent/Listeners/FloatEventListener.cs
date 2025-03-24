@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     public class FloatEventListener : GameEventListener<float> { }
 }

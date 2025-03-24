@@ -1,6 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
-using Nicklaj.Butter;
+using Dev.Nicklaj.Butter;
 using UnityEngine;
 
 class ButterSample_Healer : MonoBehaviour {

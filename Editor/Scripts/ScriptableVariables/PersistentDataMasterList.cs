@@ -4,7 +4,7 @@ using System.IO;
 using Unity.Plastic.Newtonsoft.Json;
 using UnityEngine;
 
-namespace Nicklaj.Butter
+namespace Dev.Nicklaj.Butter
 {
     [CreateAssetMenu(fileName = "Persistent Data", menuName = "Butter/Persistent Data Master List")]
     public class PersistentDataMasterList : ScriptableObject
@@ -68,7 +68,7 @@ namespace Nicklaj.Butter
                 {
                     (variable as IPersistentData).Deserialize(jsonEncoded[(variable as IPersistentData).PersistencyId]);
                 }
-                catch (NullReferenceException _) {  }
+                catch (NullReferenceException) {  }
 
             }
         }
