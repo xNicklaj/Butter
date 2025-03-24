@@ -34,5 +34,8 @@
       "description": "A sample demonstrating the use of object pools.",
       "path": "Samples~/5. Object Pools"
     }
-  ]
+  ],
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.2.1"
+  }
 }
