@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: PlayerHealth
   m_EditorClassIdentifier: 
   ResetOn: 0
-  _initialValue: 0
-  _value: 0
+  _initialValue: 100
+  _value: 100
