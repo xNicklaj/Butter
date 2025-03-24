@@ -7,7 +7,8 @@
   "author": {
     "name": "Nicklaj"
   },
-  "documentation_url": "https://github.com/xNicklaj/Butter/wiki",
+  "documentationUrl": "https://github.com/xNicklaj/Butter/wiki",
+  "changelogUrl": "https://github.com/xNicklaj/Butter/blob/main/CHANGELOG.md",
   "samples": [
     {
       "displayName": "Variables",
