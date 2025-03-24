@@ -10,7 +10,7 @@ This is the easiest method, as it doesn't require any additional code at all to 
 
 Let's assume we have a simple spawning script that spawns enemies. Enemies come from a prefab `PEnemy`. As usual, to create a new runtime set right click in the asset explorer `Create > Butter > Runtime Sets > GameObject Runtime Set`.
 
-![](/Docs/Assets/Runtime_Set.png)
+![](/Docs~/Assets/Runtime_Set.png)
 
 Everything is pretty straightforward with runtime sets, however there is one thing you should take not of. Unity **cannot** serialize `GameObjects` references from Scriptables, not without a custom inspector at the very least. If you tried to access the list directly from the inspector you would see an ominous `Mismatched Type` in every entry, hence I have disabled the list view and instead I'm showing a custom debug-only list of all the subscribed objects.
 
@@ -18,7 +18,7 @@ Now, back to the task let's go to our `PEnemey` prefab and add a new `RuntimeSet
 
 Now in any other script you can reference the set that will be updated your runtime informations.
 
-![](/Docs/Assets/Runtime_Set_Full.png)
+![](/Docs~/Assets/Runtime_Set_Full.png)
 
 ### Keeping track of custom scripts
 To create a new type of runtime set, all you have to do is create a new class that extends from `RuntimeSetBase` and give it a type.

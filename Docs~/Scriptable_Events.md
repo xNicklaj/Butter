@@ -7,11 +7,11 @@ Let's imagine this scenario: we have an boxcollider with no renderer to act as a
 
 For the sake of the tutorial I will assume you know how to setup a rigidbody on the sphere and a trigger area to the box collider.
 
-![](/Docs/Assets/Scene_Event.png)
+![](/Docs~/Assets/Scene_Event.png)
 
 As usual the first step is to go the asset explorer and create a new scriptable event of type int, which you can find under `Create > Butter > Events`. 
 
-![](/Docs/Assets/Area_Event.png)
+![](/Docs~/Assets/Area_Event.png)
 
 > [!tip]
 > During play mode you'll be able to see all the listeners attached to the event when inspecting the scriptable. Clicking on any of them will automatically focus the GameObject in your Scene Hierarchy.
@@ -22,7 +22,7 @@ Now we have an event but we need something to listen for events. So let's take o
 
 In our case we want the sphere to enable its renderer component and the gravity of the rigidbody, so the listener will look something like this:
 
-![](/Docs/Assets/Sphere_Listener.png)
+![](/Docs~/Assets/Sphere_Listener.png)
 
 Finally let's bind the box collider to raise the event OnTriggerEnter:
 
@@ -44,7 +44,7 @@ public class TriggerArea : MonoBehaviour
 
 Let's enter play mode and if you setup everything correctly, when the player enters the trigger area the boulder should fall down.
 
-![](/Docs/Assets/Sphere_Fall.png)
+![](/Docs~/Assets/Sphere_Fall.png)
 
 > [!tip]
 One of the properties of the `UnityEvent` is that it calls the assigned methods in order, so you could also, as example, use an event listener to define the execution order of the setup functions of an event manager, without having to bind anything to the `Awake()`. 

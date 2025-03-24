@@ -34,7 +34,7 @@ Moreover we will see in a later page how holding data in a scriptable will be us
 
 Let's head to our asset explorer and right click, then navigate to `Create > Butter > Variables > Float`
 
-![](/Docs/Assets/Float_Variable.png)
+![](/Docs/Assets/Float_Variable)
 
 The scriptable you created will look something like this. The fields are self-explainatory, so we can move back to our scripts and use the newly created variable to sever the link between our classes.
 
@@ -62,7 +62,7 @@ class Healer : MonoBehaviour {
 
 Now let's fill our scripts with the correct scriptable object.
 
-![](/Docs/Assets/Float_Variable_Assignment.png)
+![](/Docs~/Assets/Float_Variable_Assignment.png)
 
 You can see that once filled out the inspector will show you the current value of the variable, as well as allow you to change it directly while inspecting the script.
 
@@ -107,6 +107,6 @@ class Healer : MonoBehaviour {
 
 Now our healer will heal the player of 5 points each second and the player will print to console every time the value is changed.
 
-![](/Docs/Assets/Float_Variable_Print.png)
+![](/Docs~/Assets/Float_Variable_Print.png)
 
 Neat, isn't it? Next up is how to use Scriptable Events to power up your code and stop using event managers.

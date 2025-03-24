@@ -19,6 +19,9 @@ namespace Nicklaj.Butter
         public bool collectionChecks = true;
         public int maxPoolSize = 10;
 
+        /// <summary>
+        /// Reference to the prefab that should be instantiated.
+        /// </summary>
         public GameObject PooledObject;
         
         IObjectPool<GameObject> m_Pool;
@@ -40,9 +43,26 @@ namespace Nicklaj.Butter
 
         public GameObjectRuntimeSet ActiveObjects;
 
+        /// <summary>
+        /// This action is called when a new item is created to be inserted in the pool.
+        /// </summary>
+        public UnityAction<GameObject> Action_OnPooledItemCreated;
+        /// <summary>
+        /// This action is called when an item is successfully returned to the pool.
+        /// </summary>
         public UnityAction<GameObject> Action_OnReturnedToPool;
+        /// <summary>
+        /// This action is called when an item is successfully taken from the pool.
+        /// </summary>
         public UnityAction<GameObject> Action_OnTakeFromPool;
+        /// <summary>
+        /// This action is called when an eccess item is about to be destroyed.
+        /// </summary>
         public UnityAction<GameObject> Action_OnBeforeDestroyPoolObject;
+        /// <summary>
+        /// This action is called when an eccess item has succesfully been destroyed.
+        /// </summary>
+        public UnityAction Action_OnAfterDestroyPoolObject;
 
         GameObject CreatePooledItem()
         {
@@ -51,7 +71,7 @@ namespace Nicklaj.Butter
             // This is used to return ParticleSystems to the pool when they have stopped.
             var returnToPool = go.AddComponent<ReturnToPool>();
             returnToPool.pool = Pool;
-
+            Action_OnPooledItemCreated?.Invoke(go);
             return go;
         }
         
@@ -78,15 +98,24 @@ namespace Nicklaj.Butter
         {
             Action_OnBeforeDestroyPoolObject?.Invoke(item);
             Destroy(item);
+            Action_OnAfterDestroyPoolObject?.Invoke();
         }
     }
     
     public class ReturnToPool : MonoBehaviour
     {
         public IObjectPool<GameObject> pool;
+        /// <summary>
+        /// This action is triggered when the item is returned to the pool. Notice that there is no guarantee that the pool won't destroy this item in case it's in eccess.
+        /// </summary>
+        private UnityAction<GameObject> OnReturnedToPool;
 
+        /// <summary>
+        /// This wrapper method allows to return the object to the pool.
+        /// </summary>
         public void Release()
         {
+            OnReturnedToPool?.Invoke(gameObject);
             pool.Release(this.gameObject);
         }
     }
