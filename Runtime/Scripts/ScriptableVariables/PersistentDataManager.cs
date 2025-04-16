@@ -1,5 +1,4 @@
-﻿using UnityEditor.Overlays;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.Serialization;
 
 namespace Dev.Nicklaj.Butter
