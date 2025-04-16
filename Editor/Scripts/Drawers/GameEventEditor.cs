@@ -126,6 +126,49 @@ namespace Dev.Nicklaj.Butter
         protected abstract List<IGameEventListener<T>> GetListeners(Object target);
     }
     
-
+    #region Drawers
+    [CustomEditor(typeof(BoolEvent), true)]
+    public class BoolEventDrawer : GameEventEditor<bool>
+    {
+        protected override List<IGameEventListener<bool>> GetListeners(Object target) => (target as BoolEvent)?.Listeners;
+    }
+    
+    
+    [CustomEditor(typeof(StringEvent), true)]
+    public class StringEventDrawer : GameEventEditor<string>
+    {
+        protected override List<IGameEventListener<string>> GetListeners(Object target) => (target as StringEvent)?.Listeners;
+    }
+    
+    [CustomEditor(typeof(GameEvent), true)]
+    public class GameEventDrawer : GameEventEditor<Unit>
+    {
+        protected override List<IGameEventListener<Unit>> GetListeners(Object target) => (target as GameEvent)?.Listeners;
+    }
+    
+    [CustomEditor(typeof(IntEvent), true)]
+    public class IntEventDrawer : GameEventEditor<int>
+    {
+        protected override List<IGameEventListener<int>> GetListeners(Object target) => (target as IntEvent)?.Listeners;
+    }
+    
+    [CustomEditor(typeof(Vector2Event), true)]
+    public class Vector2EventDrawer : GameEventEditor<Vector2>
+    {
+        protected override List<IGameEventListener<Vector2>> GetListeners(Object target) => (target as Vector2Event)?.Listeners;
+    }
+    
+    [CustomEditor(typeof(FloatEvent), true)]
+    public class FloatEventDrawer : GameEventEditor<float>
+    {
+        protected override List<IGameEventListener<float>> GetListeners(Object target) => (target as FloatEvent)?.Listeners;
+    }
+    
+    [CustomEditor(typeof(Vector3Event), true)]
+    public class Vector3EventDrawer : GameEventEditor<Vector3>
+    {
+        protected override List<IGameEventListener<Vector3>> GetListeners(Object target) => (target as Vector3Event)?.Listeners;
+    }
+    #endregion
 }
 

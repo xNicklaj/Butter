@@ -102,4 +102,144 @@ namespace Dev.Nicklaj.Butter
 
         protected abstract void DrawField(Rect rect, ScriptableVariable<T> variable);
     }
+    
+    #region Drawers
+    [CustomPropertyDrawer(typeof(BoolVariable))]
+    public class BoolVariableDrawer : VariableDrawer<bool>
+    {
+        protected override string DisplayString(ScriptableVariable<bool> scriptableVariable)
+        {
+            return $"{scriptableVariable.Value}";
+        }
+
+        protected override void DrawField(Rect rect, ScriptableVariable<bool> variable)
+        {
+            EditorGUI.BeginChangeCheck();
+            var arg = EditorGUI.Toggle(
+                rect,
+                "Value",
+                variable.Value
+            );
+            if (EditorGUI.EndChangeCheck())
+            {
+                variable.Value = arg;    
+            }
+        }
+    }
+    
+    [CustomPropertyDrawer(typeof(FloatVariable))]
+    public class FloatVariableDrawer : VariableDrawer<float>
+    {
+        protected override string DisplayString(ScriptableVariable<float> scriptableVariable)
+        {
+            return $"{scriptableVariable.Value}";
+        }
+        
+        protected override void DrawField(Rect rect, ScriptableVariable<float> variable)
+        {
+            EditorGUI.BeginChangeCheck();
+            var arg = EditorGUI.FloatField(
+                rect,
+                "Value",
+                variable.Value
+            );
+            if (EditorGUI.EndChangeCheck())
+            {
+                variable.Value = arg;
+            }
+        }
+    }
+    
+    [CustomPropertyDrawer(typeof(IntVariable))]
+    public class IntVariableDrawer : VariableDrawer<int>
+    {
+        protected override string DisplayString(ScriptableVariable<int> scriptableVariable)
+        {
+            return $"{scriptableVariable.Value}";
+        }
+        
+        protected override void DrawField(Rect rect, ScriptableVariable<int> variable)
+        {
+            EditorGUI.BeginChangeCheck();
+            var arg = EditorGUI.IntField(
+                rect,
+                "Value",
+                variable.Value
+            );
+            if (EditorGUI.EndChangeCheck())
+            {
+                variable.Value = arg;    
+            }
+        }
+    }
+    
+    [CustomPropertyDrawer(typeof(StringVariable))]
+    public class StringVariableDrawer : VariableDrawer<string>
+    {
+        protected override string DisplayString(ScriptableVariable<string> scriptableVariable)
+        {
+            return $"{scriptableVariable.Value}";
+        }
+        
+        protected override void DrawField(Rect rect, ScriptableVariable<string> variable)
+        {
+            EditorGUI.BeginChangeCheck();
+            var arg = EditorGUI.TextField(
+                rect,
+                "Value",
+                variable.Value
+            );
+            if (EditorGUI.EndChangeCheck())
+            {
+                variable.Value = arg;    
+            }
+        }
+    }
+    
+    [CustomPropertyDrawer(typeof(Vector2Variable))]
+    public class Vector2VariableDrawer : VariableDrawer<Vector2>
+    {
+        protected override string DisplayString(ScriptableVariable<Vector2> scriptableVariable)
+        {
+            return $"{scriptableVariable.Value}";
+        }
+        
+        protected override void DrawField(Rect rect, ScriptableVariable<Vector2> variable)
+        {
+            EditorGUI.BeginChangeCheck();
+            var arg = EditorGUI.Vector2Field(
+                rect,
+                "Value",
+                variable.Value
+            );
+            if (EditorGUI.EndChangeCheck())
+            {
+                variable.Value = arg;
+            }
+        }
+    }
+    
+    [CustomPropertyDrawer(typeof(Vector3Variable))]
+    public class Vector3VariableDrawer : VariableDrawer<Vector3>
+    {
+        protected override string DisplayString(ScriptableVariable<Vector3> scriptableVariable)
+        {
+            return $"{scriptableVariable.Value}";
+        }
+        
+        protected override void DrawField(Rect rect, ScriptableVariable<Vector3> variable)
+        {
+            EditorGUI.BeginChangeCheck();
+            var arg = EditorGUI.Vector3Field(
+                rect,
+                "Value",
+                variable.Value
+            );
+            if (EditorGUI.EndChangeCheck())
+            {
+                variable.Value = arg;
+            }
+        }
+    }
+    #endregion
 }

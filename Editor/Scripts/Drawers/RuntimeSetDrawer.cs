@@ -32,4 +32,20 @@ namespace Dev.Nicklaj.Butter
 
         public abstract void DrawItems();
     }
+    
+    #region Drawers
+    [CustomEditor(typeof(GameObjectRuntimeSet), true)]
+    public class GameObjectRuntimeSetDrawer : RuntimeSetDrawer<GameObject>
+    {
+        public override void DrawItems()
+        {
+            foreach (GameObject item in (target as GameObjectRuntimeSet).Items)
+            {
+                EditorGUILayout.ObjectField(item, typeof(GameObject), true);
+            }
+        }
+    }
+    
+    
+    #endregion
 }

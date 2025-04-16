@@ -1,8 +1,10 @@
 {
     "name": "nicklaj.butter.editor",
     "rootNamespace": "",
-    "references": [],
-    "includePlatforms": [],
+    "references": ["GUID:c8fa8a6471024ac4a91f7cf247b98d27"],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
