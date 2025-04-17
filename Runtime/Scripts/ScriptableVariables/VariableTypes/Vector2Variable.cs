@@ -8,7 +8,7 @@ namespace Dev.Nicklaj.Butter
     [CreateAssetMenu(fileName = "Vector2 Variable", menuName = "Butter/Variables/Vector2")]
     public class Vector2Variable : ScriptableVariable<Vector2>, IPersistentData
     {
-        public string PersistencyId { get; set; }
+        [field: SerializeField, HideInInspector] public string PersistencyId { get; set; }
 
         public string Serialize()
         {
@@ -20,7 +20,7 @@ namespace Dev.Nicklaj.Butter
             Value = JsonConvert.DeserializeObject<Vector2>(data);
         }
         
-        private void Awake()
+        private void OnValidate()
         {
             if(string.IsNullOrEmpty(PersistencyId))
                 PersistencyId = Guid.NewGuid().ToString();

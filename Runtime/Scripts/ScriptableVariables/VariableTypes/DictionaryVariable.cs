@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using UnityEngine;
 using UnityEngine.Events;
 
 namespace Dev.Nicklaj.Butter
@@ -13,7 +14,7 @@ namespace Dev.Nicklaj.Butter
     [Obsolete]
     public class DictionaryVariable<TKey, TValue> : ScriptableVariable<Dictionary<TKey, TValue>>, IPersistentData
     {
-        public string PersistencyId { get; set; }
+        [field: SerializeField, HideInInspector] public string PersistencyId { get; set; }
         public UnityAction OnItemAdded = delegate { };
         public UnityAction OnItemRemoved = delegate { };
 
@@ -48,7 +49,7 @@ namespace Dev.Nicklaj.Butter
             Value = JsonConvert.DeserializeObject<Dictionary<TKey, TValue>>(data);
         }
         
-        private void Awake()
+        private void OnValidate()
         {
             if(string.IsNullOrEmpty(PersistencyId))
                 PersistencyId = Guid.NewGuid().ToString();

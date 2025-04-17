@@ -7,7 +7,7 @@ namespace Dev.Nicklaj.Butter
     [CreateAssetMenu(fileName = "String Variable", menuName = "Butter/Variables/String")]
     public class StringVariable : ScriptableVariable<string>, IPersistentData
     {
-        public string PersistencyId { get; set; }
+        [field: SerializeField, HideInInspector] public string PersistencyId { get; set; }
 
         public string Serialize()
         {
@@ -19,7 +19,7 @@ namespace Dev.Nicklaj.Butter
             Value = data;
         }
         
-        private void Awake()
+        private void OnValidate()
         {
             if(string.IsNullOrEmpty(PersistencyId))
                 PersistencyId = Guid.NewGuid().ToString();

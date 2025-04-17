@@ -9,7 +9,7 @@ namespace Dev.Nicklaj.Butter
 {
     public class ListVariable<T> : ScriptableVariable<List<T>>, IPersistentData
     {
-        public string PersistencyId { get; set; }
+        [field: SerializeField, HideInInspector] public string PersistencyId { get; set; }
         public UnityAction OnItemAdded = delegate { };
         public UnityAction OnItemRemoved = delegate { };
         

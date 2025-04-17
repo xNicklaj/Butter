@@ -73,12 +73,14 @@ namespace Dev.Nicklaj.Butter
             }
         }
 
+        private void OnEnable()
+        {
+            EvaluatePath();
+        }
+
         private void OnValidate()
         {
-            _finalPath = Path.Join(Application.persistentDataPath, SavePath);
-            if(!_finalPath.EndsWith(".json"))
-                _finalPath += ".json";
-            _finalPath = _finalPath.Replace("\\", "/");
+            EvaluatePath();
         }
 
         private bool SanityCheck()
@@ -90,6 +92,14 @@ namespace Dev.Nicklaj.Butter
             }
 
             return true;
+        }
+
+        private void EvaluatePath()
+        {
+            _finalPath = Path.Join(Application.persistentDataPath, SavePath);
+            if(!_finalPath.EndsWith(".json"))
+                _finalPath += ".json";
+            _finalPath = _finalPath.Replace("\\", "/");
         }
     }
 }

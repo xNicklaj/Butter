@@ -7,7 +7,7 @@ namespace Dev.Nicklaj.Butter
     [CreateAssetMenu(fileName = "Bool Variable", menuName = "Butter/Variables/Boolean")]
     public class BoolVariable : ScriptableVariable<bool>, IPersistentData
     {
-        public string PersistencyId { get; set; }
+        [field: SerializeField, HideInInspector] public string PersistencyId { get; set; }
 
         public string Serialize()
         {
@@ -18,11 +18,17 @@ namespace Dev.Nicklaj.Butter
         {
             Value = bool.Parse(data);
         }
-        
-        private void Awake()
+
+        private void OnValidate()
         {
             if(string.IsNullOrEmpty(PersistencyId))
                 PersistencyId = Guid.NewGuid().ToString();
+        }
+        
+        private void Awake()
+        {
+            //if(string.IsNullOrEmpty(PersistencyId))
+                //PersistencyId = Guid.NewGuid().ToString();
         }
     }
 }

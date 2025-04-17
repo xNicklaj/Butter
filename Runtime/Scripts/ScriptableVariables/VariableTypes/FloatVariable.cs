@@ -9,7 +9,7 @@ namespace Dev.Nicklaj.Butter
     [CreateAssetMenu(fileName = "Float Variable", menuName = "Butter/Variables/Float")]
     public class FloatVariable : ScriptableVariable<float>, IPersistentData
     {
-        public string PersistencyId { get; set; }
+        [field: SerializeField, HideInInspector] public string PersistencyId { get; set; }
 
         public string Serialize()
         {
@@ -21,7 +21,7 @@ namespace Dev.Nicklaj.Butter
             Value = float.Parse(data);
         }
         
-        private void Awake()
+        private void OnValidate()
         {
             if(string.IsNullOrEmpty(PersistencyId))
                 PersistencyId = Guid.NewGuid().ToString();
