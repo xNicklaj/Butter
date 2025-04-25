@@ -1,5 +1,6 @@
 using System;
 using Newtonsoft.Json;
+using Unity.Properties;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -12,6 +13,7 @@ namespace Dev.Nicklaj.Butter
 
         public UnityAction<T> OnValueChanged = delegate { };
 
+        [CreateProperty]
         public T Value
         {
             get => _value;
