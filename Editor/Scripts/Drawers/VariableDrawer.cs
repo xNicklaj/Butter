@@ -241,5 +241,28 @@ namespace Dev.Nicklaj.Butter
             }
         }
     }
+    
+    [CustomPropertyDrawer(typeof(QuaternionVariable))]
+    public class QuaternionVariableDrawer : VariableDrawer<Quaternion>
+    {
+        protected override string DisplayString(ScriptableVariable<Quaternion> scriptableVariable)
+        {
+            return $"{scriptableVariable.Value}";
+        }
+        
+        protected override void DrawField(Rect rect, ScriptableVariable<Quaternion> variable)
+        {
+            EditorGUI.BeginChangeCheck();
+            var arg = EditorGUI.Vector3Field(
+                rect,
+                "Value",
+                variable.Value.eulerAngles
+            );
+            if (EditorGUI.EndChangeCheck())
+            {
+                variable.Value = Quaternion.Euler(arg);
+            }
+        }
+    }
     #endregion
 }

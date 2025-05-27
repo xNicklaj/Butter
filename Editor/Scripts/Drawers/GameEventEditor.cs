@@ -169,6 +169,12 @@ namespace Dev.Nicklaj.Butter
     {
         protected override List<IGameEventListener<Vector3>> GetListeners(Object target) => (target as Vector3Event)?.Listeners;
     }
+
+    [CustomEditor(typeof(QuaternionEvent), true)]
+    public class QuaternionEventDrawer : GameEventEditor<Quaternion>
+    {
+        protected override List<IGameEventListener<Quaternion>> GetListeners(Object target) => (target as QuaternionEvent)?.Listeners;
+    }
     #endregion
 }
 
