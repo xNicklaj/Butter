@@ -12,12 +12,12 @@ namespace Dev.Nicklaj.Butter
 
         public string Serialize()
         {
-            return JsonConvert.SerializeObject(Value);
+            return JsonConvert.SerializeObject(Value, new JsonSerializerSettings(){ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
         }
 
         public void Deserialize(string data)
         {
-            Value = JsonConvert.DeserializeObject<Vector3>(data);
+            Value = JsonConvert.DeserializeObject<Vector3>(data, new JsonSerializerSettings(){ReferenceLoopHandling = ReferenceLoopHandling.Ignore});
         }
         
         private void OnValidate()
