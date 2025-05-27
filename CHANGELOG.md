@@ -1,3 +1,7 @@
+05/28/2025, 1.1.2:
+ - Fixed persistency issue with Vector data type.
+ - Added Quaternion data type.
+
 04/17/2025, 1.1.1:
  - Fixed persistent variables changing UUID across session restart.
 
