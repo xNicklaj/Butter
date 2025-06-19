@@ -25,6 +25,12 @@ namespace Dev.Nicklaj.Butter
             }
         }
 
+        /// <summary>
+        /// Manually reset variable to initial state.
+        /// </summary>
+        public void Reset() => OnReset();
+
+        [Obsolete("This should only be used when creating new scriptable variables, avoid calling this directly through code otherwise, it's here just for compatibility reasons.")]
         protected override void OnReset()
         {
             OnValueChanged?.Invoke(_value = _initialValue);

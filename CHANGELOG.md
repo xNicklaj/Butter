@@ -1,3 +1,6 @@
+06/19/2025, 1.1.3:
+ - Added method to manually reset variables.
+
 05/28/2025, 1.1.2:
  - Fixed persistency issue with Vector data type.
  - Added Quaternion data type.
