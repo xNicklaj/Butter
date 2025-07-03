@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEditor;
+using Logger = Dev.Nicklaj.Butter.Helpers.Logger;
 
 namespace Dev.Nicklaj.Butter
 {
@@ -12,10 +13,13 @@ namespace Dev.Nicklaj.Butter
     public class GameEvent<T> : ScriptableObject
     {
         protected readonly List<IGameEventListener<T>> listeners = new();
+        public bool UseDebugLogs = false;
         public List<IGameEventListener<T>> Listeners => listeners;
 
         public void Raise(T data)
         {
+            if(UseDebugLogs)
+                Logger.LogInfo($"Raising Event {name} with payload {data}");
             for (int i = listeners.Count - 1; i >= 0; i--)
             {
                 listeners[i].OnEventRaised(data);

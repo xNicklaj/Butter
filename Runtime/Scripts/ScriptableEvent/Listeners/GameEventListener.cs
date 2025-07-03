@@ -2,6 +2,8 @@
 using System;
 using UnityEngine;
 using UnityEngine.Events;
+using Logger = Dev.Nicklaj.Butter.Helpers.Logger;
+
 
 namespace Dev.Nicklaj.Butter
 {
@@ -22,7 +24,13 @@ namespace Dev.Nicklaj.Butter
         void OnDisable() => _gameEvent?.DeregisterListener(this);
         
         public GameObject Target { get; set; }
-        public void OnEventRaised(T data) => _response.Invoke(data);
+
+        public void OnEventRaised(T data)
+        {
+            if (_gameEvent.UseDebugLogs)
+                Logger.LogInfo($"{this.gameObject.name} received event {_gameEvent.name} with payload {data}");
+            _response.Invoke(data);
+        }
     }
 
     /// <summary>

@@ -1,3 +1,6 @@
+07/04/2025, 1.1.4:
+ - Added a per-event option to use debug logs when raising or listening for an event.
+
 06/19/2025, 1.1.3:
  - Added method to manually reset variables.
 

@@ -12,14 +12,15 @@ namespace Dev.Nicklaj.Butter
     public abstract class GameEventEditor<T> : Editor
     {
         private string inputArgument = "";
-        private bool useDebugLogs = false;
         private ISerializedRaise raiseTarget;
+        private GameEvent<T> gameEvent;
         private bool isRaiseTarget = false;
 
         private void OnEnable()
         {
             // Check if target implements ISerializedRaise
             raiseTarget = target as ISerializedRaise;
+            gameEvent = target as GameEvent<T>;
             isRaiseTarget = raiseTarget != null;
         }
 
@@ -41,8 +42,6 @@ namespace Dev.Nicklaj.Butter
             EditorGUILayout.LabelField("Test Event", EditorStyles.boldLabel);
 
             EditorGUILayout.BeginHorizontal();
-            EditorGUILayout.PrefixLabel("Use Debug Logs");
-            useDebugLogs = EditorGUILayout.Toggle(useDebugLogs);
             EditorGUILayout.EndHorizontal();
 
             // Only show input field if the event has an argument
@@ -61,7 +60,6 @@ namespace Dev.Nicklaj.Butter
                 {
                     // Call the implementation's OnRaiseButtonSubmit method
                     raiseTarget.OnRaiseButtonSubmit(inputArgument);
-                    if (useDebugLogs) Debug.Log($"Event raised with argument: {(string.IsNullOrEmpty(inputArgument) ? "[none]" : inputArgument)}");
                 }
                 EditorGUILayout.EndHorizontal();
 
@@ -74,7 +72,6 @@ namespace Dev.Nicklaj.Butter
                 {
                     // Call the implementation's OnRaiseButtonSubmit method
                     raiseTarget.OnRaiseButtonSubmit(inputArgument);
-                    if (useDebugLogs) Debug.Log($"Event raised with argument: {(string.IsNullOrEmpty(inputArgument) ? "[none]" : inputArgument)}");
                 }
             }
             
