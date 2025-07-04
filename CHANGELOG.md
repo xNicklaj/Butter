@@ -1,3 +1,6 @@
+07/04/2025, 1.1.5:
+ - Added a per-variable option to use debug logs when the variable is reset or changed.
+
 07/04/2025, 1.1.4:
  - Added a per-event option to use debug logs when raising or listening for an event.
 
