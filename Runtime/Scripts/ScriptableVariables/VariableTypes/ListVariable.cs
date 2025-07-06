@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json;
 using UnityEditor;
 using UnityEngine.Events;
+using Logger = Dev.Nicklaj.Butter.Helpers.Logger;
 
 namespace Dev.Nicklaj.Butter
 {
@@ -19,6 +20,7 @@ namespace Dev.Nicklaj.Butter
         /// <param name="value"></param>
         public void Add(T value)
         {
+            if(UseDebugLogs) Logger.LogInfo($"Adding item {value} to {this.name}.");
             Value.Add(value);
             OnItemAdded.Invoke();
         }
@@ -29,8 +31,10 @@ namespace Dev.Nicklaj.Butter
         /// <param name="value"></param>
         public void Remove(T value)
         {
-            Value.Remove(value);
-            OnItemRemoved.Invoke();
+            if(UseDebugLogs) Logger.LogInfo($"Trying to remove item {value} from {this.name}.");
+            var v = Value.Remove(value);
+            if(UseDebugLogs) Logger.LogInfo(v ? $"Item {value} removed from {this.name}" : $"Item {value} could not be found in {this.name}");
+            if(v) OnItemRemoved.Invoke();
         }
 
         public string Serialize()
