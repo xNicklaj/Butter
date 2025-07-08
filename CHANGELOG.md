@@ -1,4 +1,4 @@
-07/08/2025, 1.2:
+07/08/2025, 1.2.0:
  - Added variable reset before build to avoid scenarios where scriptable variables are packaged with wrong value.
 
 07/06/2025, 1.1.6:
