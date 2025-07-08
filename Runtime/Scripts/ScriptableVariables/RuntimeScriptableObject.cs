@@ -12,6 +12,11 @@ namespace Dev.Nicklaj.Butter
         void OnEnable() => Instances.Add(this);
         void OnDisable() => Instances.Remove(this);
         protected abstract void OnReset();
+        
+        /// <summary>
+        /// Manually reset variable to initial state.
+        /// </summary>
+        public void Reset() => OnReset();
 
         [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
         static void ResetAllInstancesOnSceneLoad()

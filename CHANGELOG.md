@@ -1,5 +1,8 @@
+07/08/2025, 1.2:
+ - Added variable reset before build to avoid scenarios where scriptable variables are packaged with wrong value.
+
 07/06/2025, 1.1.6:
- - Added debug logs to RuntimeSets and Lists
+ - Added debug logs to RuntimeSets and Lists.
 
 07/04/2025, 1.1.5:
  - Added a per-variable option to use debug logs when the variable is reset or changed.
