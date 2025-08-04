@@ -1,3 +1,6 @@
+04/08/2025, 1.3.0:
+ - Implemented channel multiplexing for scriptable events.
+
 07/08/2025, 1.2.0:
  - Added variable reset before build to avoid scenarios where scriptable variables are packaged with wrong value.
 

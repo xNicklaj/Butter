@@ -9,9 +9,9 @@ namespace Dev.Nicklaj.Butter
     {
         public bool HasArgument => true;
 
-        public void OnRaiseButtonSubmit(string arg0 = "")
+        public void OnRaiseButtonSubmit(string arg0 = "", uint channel = 0)
         {
-            this.Raise(arg0);
+            this.Raise(arg0, channel);
         }
     }
 }

@@ -9,10 +9,10 @@ namespace Dev.Nicklaj.Butter
     {
         public bool HasArgument => true;
 
-        public void OnRaiseButtonSubmit(string arg0 = "")
+        public void OnRaiseButtonSubmit(string arg0 = "", uint channel = 0)
         {
             if (int.TryParse(arg0, out int result) == false) return;
-            this.Raise(result);
+            this.Raise(result, channel);
         }
     }
 }

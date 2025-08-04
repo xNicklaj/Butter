@@ -9,6 +9,6 @@ namespace Dev.Nicklaj.Butter
         /// This function gets called when the raise button in the inspector is raised. Do not call via code.
         /// </summary>
         /// <param name="arg0"></param>
-        public void OnRaiseButtonSubmit(string arg0 = "");
+        public void OnRaiseButtonSubmit(string arg0 = "", uint channel = 0);
     }
 }

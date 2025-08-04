@@ -10,7 +10,7 @@ namespace Dev.Nicklaj.Butter
     {
         public bool HasArgument => true;
 
-        public void OnRaiseButtonSubmit(string arg0 = "")
+        public void OnRaiseButtonSubmit(string arg0 = "", uint channel = 0)
         {
             // Try to parse the input as a vector2
             var tmp = arg0.Replace("(", "").Replace(")", "").Split(',');
@@ -22,7 +22,7 @@ namespace Dev.Nicklaj.Butter
                     return;
                 }
             }
-            this.Raise(new Vector2(x,y));
+            this.Raise(new Vector2(x,y), channel);
         }
     }
 }

@@ -37,5 +37,5 @@ This is a list of features I'd like to see implemented. The order does not neces
 
 - [ ] Add Object Pools as native scriptables.
 - [ ] Custom editor renderer for list properties and dictionaries.
-- [ ] Native color variable.
+- [X] Native color variable.
 - [ ] Custom icons for variables, events and sets.

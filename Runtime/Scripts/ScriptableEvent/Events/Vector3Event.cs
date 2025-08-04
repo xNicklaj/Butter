@@ -10,7 +10,7 @@ namespace Dev.Nicklaj.Butter
     {
         public bool HasArgument => true;
 
-        public void OnRaiseButtonSubmit(string arg0 = "")
+        public void OnRaiseButtonSubmit(string arg0 = "", uint channel = 0)
         {
             // Try to parse the input as a vector2
             var tmp = arg0.Replace("(", "").Replace(")", "").Split(',');
@@ -21,7 +21,7 @@ namespace Dev.Nicklaj.Butter
                 Debug.LogError("Failed to parse the event data. Make sure the parameters for your vector3 event are correct.");
                 return;
             }
-            this.Raise(new Vector3(x,y,z));
+            this.Raise(new Vector3(x,y,z), channel);
         }
     }
 }

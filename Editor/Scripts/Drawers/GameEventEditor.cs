@@ -12,6 +12,7 @@ namespace Dev.Nicklaj.Butter
     public abstract class GameEventEditor<T> : Editor
     {
         private string inputArgument = "";
+        private uint inputChannel = 0;
         private ISerializedRaise raiseTarget;
         private GameEvent<T> gameEvent;
         private bool isRaiseTarget = false;
@@ -44,6 +45,8 @@ namespace Dev.Nicklaj.Butter
             EditorGUILayout.BeginHorizontal();
             EditorGUILayout.EndHorizontal();
 
+            inputChannel = (uint)Mathf.Clamp(EditorGUILayout.LongField("Channel", (long)inputChannel), 0, uint.MaxValue);
+
             // Only show input field if the event has an argument
             if (raiseTarget.HasArgument)
             {
@@ -71,7 +74,7 @@ namespace Dev.Nicklaj.Butter
                 if (GUILayout.Button("Raise Event"))
                 {
                     // Call the implementation's OnRaiseButtonSubmit method
-                    raiseTarget.OnRaiseButtonSubmit(inputArgument);
+                    raiseTarget.OnRaiseButtonSubmit(inputArgument, inputChannel);
                 }
             }
             

@@ -16,13 +16,13 @@ namespace Dev.Nicklaj.Butter
         public bool UseDebugLogs = false;
         public List<IGameEventListener<T>> Listeners => listeners;
 
-        public void Raise(T data)
+        public void Raise(T data, uint channel = 0)
         {
             if(UseDebugLogs)
                 Logger.LogInfo($"Raising Event {name} with payload {data}");
             for (int i = listeners.Count - 1; i >= 0; i--)
             {
-                listeners[i].OnEventRaised(data);
+                listeners[i].OnEventRaised(data, channel);
             }
         }
 
@@ -38,12 +38,12 @@ namespace Dev.Nicklaj.Butter
     {
         public bool HasArgument => false;
 
-        public void OnRaiseButtonSubmit(string arg0 = "")
+        public void OnRaiseButtonSubmit(string arg0 = "", uint channel = 0)
         {
-            Raise();
+            Raise(channel);
         }
 
-        public void Raise() => Raise(Unit.Default);
+        public void Raise(uint channel = 0) => Raise(Unit.Default, channel);
     }
 
     public struct Unit

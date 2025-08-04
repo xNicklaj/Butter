@@ -8,7 +8,7 @@ namespace Dev.Nicklaj.Butter
         /// Target of the event. Used to show in the editor all the listeners attached to the event.
         /// </summary>
         public GameObject Target { get; set; }
-        void OnEventRaised(T data);
+        void OnEventRaised(T data, uint channel = 0);
     }
 
 }

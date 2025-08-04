@@ -14,6 +14,7 @@ namespace Dev.Nicklaj.Butter
     public class GameEventListener<T> : MonoBehaviour, IGameEventListener<T>
     {
         [SerializeField] GameEvent<T> _gameEvent;
+        public uint Channel = 0;
         /// <summary>
         /// UnityEvents that will be invoked when the GameEvent is raised. Possibly, set this via the inspector.
         /// </summary>
@@ -25,8 +26,9 @@ namespace Dev.Nicklaj.Butter
         
         public GameObject Target { get; set; }
 
-        public void OnEventRaised(T data)
+        public void OnEventRaised(T data, uint channel)
         {
+            if (Channel != channel) return;
             if (_gameEvent.UseDebugLogs)
                 Logger.LogInfo($"{this.gameObject.name} received event {_gameEvent.name} with payload {data}");
             _response.Invoke(data);

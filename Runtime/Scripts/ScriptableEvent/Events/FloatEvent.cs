@@ -10,11 +10,11 @@ namespace Dev.Nicklaj.Butter
     {
         public bool HasArgument => true;
 
-        public void OnRaiseButtonSubmit(string arg0 = "")
+        public void OnRaiseButtonSubmit(string arg0 = "", uint channel = 0)
         {
             // Try to parse the input as a float
             if (float.TryParse(arg0, NumberStyles.Float, CultureInfo.InvariantCulture, out float result) == false) return;
-            this.Raise(result);
+            this.Raise(result, channel);
         }
     }
 }
