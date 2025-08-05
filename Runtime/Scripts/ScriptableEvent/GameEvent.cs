@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
 using UnityEditor;
+using UnityEngine.Events;
 using Logger = Dev.Nicklaj.Butter.Helpers.Logger;
 
 namespace Dev.Nicklaj.Butter
@@ -16,16 +17,23 @@ namespace Dev.Nicklaj.Butter
         public bool UseDebugLogs = false;
         public List<IGameEventListener<T>> Listeners => listeners;
 
+        private UnityAction<T> _callbacks;
+
         public void Raise(T data, uint channel = 0)
         {
             if(UseDebugLogs)
                 Logger.LogInfo($"Raising Event {name} with payload {data}");
+            
             for (int i = listeners.Count - 1; i >= 0; i--)
             {
                 listeners[i].OnEventRaised(data, channel);
             }
+            
+            _callbacks?.Invoke(data);
         }
 
+        public void RegisterListener(UnityAction<T> callback) => _callbacks += callback;
+        public void DeregisterListener(UnityAction<T> callback) => _callbacks -= callback;
         public void RegisterListener(IGameEventListener<T> listener) => listeners.Add(listener);
         public void DeregisterListener(IGameEventListener<T> listener) => listeners.Remove(listener);
     }

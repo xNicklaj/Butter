@@ -1,3 +1,6 @@
+05/08/2025, 1.3.1:
+ - Implemented method to register a delegate directly via code in ScriptableEvents.
+
 04/08/2025, 1.3.0:
  - Implemented channel multiplexing for scriptable events.
 
